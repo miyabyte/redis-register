@@ -1,4 +1,5 @@
 // Through Redis, obtain the list of programs using this package and their change information in real-time.
+
 type NodeEvent struct {
 	NodeID       string         // Current node ID
 	NodeCount    int            // Latest total number of nodes
@@ -9,3 +10,12 @@ type NodeEvent struct {
 	Timestamp    int64          // Event timestamp (in milliseconds)
 	NodeList     []NodeInfoResp // Latest list of active nodes
 }
+
+1. nodeMgr, err := NewNodeManager(ctx, cfg, redisClient)
+2. callback1 := func(event NodeEvent) {
+   		log.Infof("=== callback1 received event ===")
+   		log.Infof("nodeEvent=%+v", event)
+   	}
+   	if err := nodeMgr.RegisterCallback("c1", callback1); err != nil {
+   		log.Fatalf("register callback1 failed: %v", err)
+   	}
