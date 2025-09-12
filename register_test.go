@@ -9,7 +9,7 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func (e NodeEvent) name(t testing.T) {
+func TestRegister(t *testing.T) {
 	// 1. Main service initialization: create context, Redis Client, configuration
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
