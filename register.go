@@ -85,13 +85,13 @@ func NewNodeManager(ctx context.Context, cfg NodeManagerConfig, redisClient *red
 
 	// Complete default configuration
 	if cfg.ExpireTimeout == 0 {
-		cfg.ExpireTimeout = 5 * time.Second
+		cfg.ExpireTimeout = 9 * time.Second
 	}
 	if cfg.HeartbeatInt == 0 {
-		cfg.HeartbeatInt = 2 * time.Second
+		cfg.HeartbeatInt = 3 * time.Second
 	}
 	if cfg.ScanInt == 0 {
-		cfg.ScanInt = 5 * time.Second
+		cfg.ScanInt = 10 * time.Second
 	}
 
 	// Validate Redis Client
